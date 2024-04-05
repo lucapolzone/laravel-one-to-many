@@ -19,7 +19,7 @@
                     @forelse ($projects as $project)
                         <tr>
                             <td>{{ $project->title }}</td>
-                            <td>{{ $project->type->label }}</td>
+                            <td>{{ $project->type->label }}</td> {{-- dietro questa sintassi c'è una JOIN sul db. È possibile grazie alla relazione nei Models --}}
                             <td>{{ $project->content }}</td>
                             <td>
                                 {{-- <a href="{{ $project->link }}" target="_blank">Dettagli</a> --}}
