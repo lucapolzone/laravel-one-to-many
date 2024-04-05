@@ -9,6 +9,7 @@
             <table class="table">
                 <thead>
                     <th scope="col">Titolo progetto</th>
+                    <th scope="col">Tipo di progetto</th>
                     <th scope="col">Descrizione</th>
                     <th scope="col">Link</th>
                 </thead>
@@ -18,6 +19,7 @@
                     @forelse ($projects as $project)
                         <tr>
                             <td>{{ $project->title }}</td>
+                            <td>{{ $project->type->label }}</td>
                             <td>{{ $project->content }}</td>
                             <td>
                                 {{-- <a href="{{ $project->link }}" target="_blank">Dettagli</a> --}}
