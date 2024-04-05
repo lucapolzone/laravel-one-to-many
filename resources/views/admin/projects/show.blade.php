@@ -7,6 +7,7 @@
             {{-- @dump($projects) --}}
 
             <p><strong>Titolo: </strong>{{ $project->title }}</p>
+            <p><strong>Tipo di progetto: </strong>{{ $project->type->label }}</p>
             <p><strong>Descrizione: </strong>{{ $project->content }}</p>
 
         </div>
