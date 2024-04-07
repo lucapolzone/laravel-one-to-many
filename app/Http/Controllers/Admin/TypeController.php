@@ -14,11 +14,20 @@ class TypeController extends Controller
     }
 
     public function create() {
-        
+        $type =  new Type;
+        return view('admin.types.form', compact('type')); 
     }
 
     public function store(Request $request) {
+        $data = $request->all();
 
+        $type = new Type;
+
+        $type->fill($data);
+        
+        $type->save();
+
+        return redirect()->route('admin.types.show', $type);
     }
 
     public function show(Type $type) {
