@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +30,12 @@ Route::middleware('auth')
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])
       ->name('dashboard');
 
-    //rotta risorsa projects
+    //rotta risorsa Project
+
     Route::resource('projects', ProjectController::class);
+    
+    //rotta risorsa Type
+    Route::resource('types', TypeController::class);
 
   });
 
