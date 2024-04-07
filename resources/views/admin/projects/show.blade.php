@@ -10,6 +10,8 @@
             <p><strong>Tipo di progetto: </strong>{{ $project->type->label }}</p>
             <p><strong>Descrizione: </strong>{{ $project->content }}</p>
 
+            <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-warning my-3">Modifica</a>
+
         </div>
     </section>
 @endsection

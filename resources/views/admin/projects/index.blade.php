@@ -9,7 +9,7 @@
             <table class="table">
                 <thead>
                     <th scope="col">Titolo progetto</th>
-                    <th scope="col">Tipo di progetto</th>
+                    <th scope="col">Categoria</th>
                     <th scope="col">Descrizione</th>
                     <th scope="col">Link</th>
                 </thead>
