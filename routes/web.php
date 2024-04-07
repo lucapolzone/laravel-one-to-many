@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\TypeController;
+
+use App\Http\Controllers\Guest\DashboardController as GuestDashboardController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
