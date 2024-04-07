@@ -19,6 +19,11 @@
                 </div>
 
                 <div class="mb-3">
+                  <label class="form-label" for="content">Link progetto</label>
+                  <input class="form-control" type="url" id="content" name="content" value="{{ $project->link }}">
+                </div>
+
+                <div class="mb-3">
                     <label for="select" class="form-label">Categoria</label>
                     <select id="select" class="form-select">
                       <option value="1">1</option>
