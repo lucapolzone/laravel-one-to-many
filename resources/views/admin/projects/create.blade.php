@@ -28,15 +28,18 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="select" class="form-label">Categoria</label>
-                    <select class="form-select" id="type_id" name="type_id">
+                    <label for="select" class="form-label">Categoria</label>                    
+                    <select class="form-select @error('type_id') is-invalid @enderror" id="type_id" name="type_id">
                         <option class="d-none" value="">Seleziona una categoria</option>
-                        
                         @foreach($types as $type)
                             <option value="{{ $type->id }}">{{ $type->label }}</option>
                         @endforeach
-                    
                     </select>
+                    @error('type_id')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror  
                 </div>
 
                 <div class="mb-3">
