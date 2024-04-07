@@ -10,22 +10,37 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="title">Titolo progetto</label>
-                  <input class="form-control" type="text" id="title" name="title" value="{{ $project->title }}">
+                  <input class="form-control @error('title') is-invalid @enderror" value="{{ old('title') ?? $project->title }}" type="text" id="title" name="title">
+                  @error('title')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
                 </div>
 
                 <div class="mb-3">
                   <label class="form-label" for="content">Descrizione progetto</label>
-                  <input class="form-control" type="text" id="content" name="content" value="{{ $project->content }}">
+                  <input class="form-control @error('content') is-invalid @enderror" value="{{ old('content') ?? $project->content }}" type="text" id="content" name="content">
+                  @error('content')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="content">Link progetto</label>
-                  <input class="form-control" type="url" id="content" name="content" value="{{ $project->link }}">
+                  <label class="form-label" for="link">Link progetto</label>
+                  <input class="form-control @error('link') is-invalid @enderror" value="{{ old('link') ?? $project->link }}" type="url" id="link" name="link">
+                  @error('link')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="select" class="form-label">Categoria</label>
-                    <select id="select" class="form-select">
+                    <select class="form-select" id="type_id" name="type_id">
                       <option value="">Seleziona una categoria</option>
 
                       @foreach($types as $type)

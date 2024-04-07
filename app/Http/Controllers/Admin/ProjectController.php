@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class ProjectController extends Controller
 {
@@ -41,7 +43,8 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
+        $data = $this->validation($request->all());
 
         $project = new Project;
 
@@ -87,7 +90,8 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $data = $request->all();
+        // $data = $request->all();
+        $data = $this->validation($request->all());
 		$project->update($data);
 		return redirect()->route('admin.projects.show', $project);
     }
@@ -102,5 +106,34 @@ class ProjectController extends Controller
     {
         $project->delete();
 		return redirect()->route('admin.projects.index');
+    }
+
+    private function validation($data)
+    {
+        $validator = Validator::make(
+            $data,
+            [
+              //... regole di validazione
+              'title' => 'required|string|max:150',
+              'type_id' => 'required',
+              'content' => 'required|max:300',
+              'link' => 'required',
+            ],
+            [
+              //... messaggi di errore
+              'title.required' => 'Il titolo è obbligatorio',
+              'title.string' => 'Il titolo deve essere una stringa',
+              'title.max' => 'Il titolo deve essere lungo max 150 caratteri',
+
+              'type_id.required' => 'Devi selezionare una categoria',
+              
+              'content.required' => 'La descrizione è obbligatoria',
+              'content.max' => 'Il titolo deve essere lungo max 300 caratteri',
+              
+              'link.required' => 'Il link è obbligatorio',
+              ]
+          )->validate();
+
+          return $validator;
     }
 }
