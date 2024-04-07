@@ -26,8 +26,11 @@
                 <div class="mb-3">
                     <label for="select" class="form-label">Categoria</label>
                     <select id="select" class="form-select">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
+                      <option value="">Seleziona una categoria</option>
+
+                      @foreach($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->label }}</option>
+                      @endforeach
                     </select>
                 </div>
 
