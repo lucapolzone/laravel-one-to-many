@@ -14,7 +14,7 @@
 						<th>Etichetta</th>
 						<th>Colore</th>
 						<th>Badge</th>
-						<th></th>
+						<th class="text-center">Mosta categoria</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -24,6 +24,11 @@
 							<td>{{ $type->label }}</td>
 							<td>{{ $type->color }}</td>
 							<td>{!! $type->getBadge() !!}</td>
+							<td class="text-center">
+								<a href="{{ route('admin.types.show', $type) }}">
+                                    <i class="fa-solid fa-eye" style="color: Dodgerblue;"></i>
+                                </a>
+							</td>
 						</tr>
 
 					@empty
@@ -37,4 +42,12 @@
 			</table>
 
 		</div>
+@endsection
+
+
+{{-- Link cdn font awesome --}}
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection
